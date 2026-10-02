@@ -1,4 +1,29 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
 
 :root {
   --sds-color-background-neutral-default: #9d9c93;
@@ -10,40 +35,52 @@
   --sds-color-background-default-tertiary-hover: #c4baff;
   --sds-color-background-brand-default: #e8e7de;
 
-  --sds-color-text-default-default: #ff00ff;
-  --sds-color-text-default-tertiary: #ff00ff;
+  --sds-color-text-default-default: #9d9c93; /* verify: identical to the neutral background */
+  --sds-color-text-default-secondary: #9d9c93;
+  --sds-color-text-default-tertiary: #ff00ff; /* FILL */
 
   --sds-color-icon-default-default: #1e1e1e;
-  --sds-color-icon-neutral-default: #ff00ff;
+  --sds-color-icon-neutral-default: #ff00ff; /* FILL */
   --sds-color-icon-neutral-secondary: #9d9c93;
   --sds-color-icon-neutral-tertiary: #d2d1c7;
 
   --sds-typography-heading-font-family:
     var(--font-display-src), "Libre Caslon Text", serif;
-  --sds-typography-body-font-family: monospace; /* FILL: label font family */
+  --sds-typography-body-font-family: monospace; /* FILL: label font */
   --sds-typography-body-size-medium: 14px; /* inferred from 15.4px line height, verify */
-  --sds-typography-body-font-weight-strong: 700; /* FILL: resolved weight */
+  --sds-typography-body-font-weight-strong: 700; /* FILL */
 
-  --backdrop-idle: #ff00ff; /* FILL: Launch / Idle */
-  --backdrop-shell: #ff00ff; /* FILL: taupe behind panels on app screens */
-  --panel-dark: #ff00ff; /* FILL: Library, Scapes, Creator */
-  --panel-light: #ff00ff; /* FILL: Browse */
-  --panel-muted: #ff00ff; /* FILL: PDP */
-  --raised: #ff00ff; /* FILL: buttons, inputs, chips */
-
-  /* Accents: delete any the design doesn't use */
-  --accent-lavender: #ff00ff; /* FILL */
-  --accent-yellow: #ff00ff; /* FILL */
-  --accent-pink: #ff00ff; /* FILL */
-  --accent-orange: #ff00ff; /* FILL */
-
-  /* Radii */
   --panel-radius: 0px; /* FILL */
   --pill-radius: 0px; /* FILL */
   --card-radius: 0px; /* FILL */
 }
 
 @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* EPOCH */
   --color-surface-neutral: var(--sds-color-background-neutral-default);
   --color-surface: var(--sds-color-background-default-default);
   --color-surface-hover: var(--sds-color-background-default-default-hover);
@@ -58,34 +95,23 @@
   --color-surface-brand: var(--sds-color-background-brand-default);
 
   --color-ink: var(--sds-color-text-default-default);
+  --color-ink-secondary: var(--sds-color-text-default-secondary);
   --color-ink-tertiary: var(--sds-color-text-default-tertiary);
 
   --color-icon: var(--sds-color-icon-default-default);
   --color-icon-neutral: var(--sds-color-icon-neutral-default);
   --color-icon-neutral-secondary: var(--sds-color-icon-neutral-secondary);
   --color-icon-neutral-tertiary: var(--sds-color-icon-neutral-tertiary);
-  --color-backdrop-idle: var(--backdrop-idle);
-  --color-backdrop-shell: var(--backdrop-shell);
-  --color-panel-dark: var(--panel-dark);
-  --color-panel-light: var(--panel-light);
-  --color-panel-muted: var(--panel-muted);
-  --color-raised: var(--raised);
-
-  --color-accent-lavender: var(--accent-lavender);
-  --color-accent-yellow: var(--accent-yellow);
-  --color-accent-pink: var(--accent-pink);
-  --color-accent-orange: var(--accent-orange);
 
   --radius-panel: var(--panel-radius);
   --radius-pill: var(--pill-radius);
   --radius-card: var(--card-radius);
 
-  --font-display: var(--font-display-src);
   --font-display: var(--sds-typography-heading-font-family);
 }
 
 @utility type-serif-regular {
-  font-family: var(--font-display-src), serif;
+  font-family: var(--sds-typography-heading-font-family);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -106,12 +132,11 @@
   text-transform: uppercase;
 }
 
-@utility type-label-strong-caps {
-  font-family: var(--sds-typography-heading-font-family);
-  font-size: var(--sds-typography-body-size-medium);
-  font-style: normal;
-  font-weight: var(--sds-typography-body-font-weight-strong);
-  line-height: 110%;
-  letter-spacing: -0.28px;
-  text-transform: uppercase;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
