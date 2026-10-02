@@ -37,10 +37,10 @@
 
   --sds-color-text-default-default: #9d9c93; /* verify: identical to the neutral background */
   --sds-color-text-default-secondary: #9d9c93;
-  --sds-color-text-default-tertiary: #ff00ff; /* FILL */
+  --sds-color-text-default-tertiary: #d2d1c7;
 
   --sds-color-icon-default-default: #1e1e1e;
-  --sds-color-icon-neutral-default: #ff00ff; /* FILL */
+  --sds-color-icon-neutral-default: #d2d1c7;
   --sds-color-icon-neutral-secondary: #9d9c93;
   --sds-color-icon-neutral-tertiary: #d2d1c7;
 

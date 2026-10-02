@@ -22,7 +22,7 @@ export const PageShell = ({
         className={cn(
           "relative z-10 flex-1 rounded-t-panel p-4",
           "-mt-[6vw] md:-mt-[4vw]",
-          "bg-surface-tertiary/60",
+          "bg-surface-tertiary",
           panelClassName,
         )}
       >

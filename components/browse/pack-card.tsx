@@ -10,11 +10,17 @@ type PackCardProps = {
   className?: string;
 };
 
-// Deterministic fake waveform — replaced by real asset art later
-const BARS = [
+// Deterministic placeholder waveform — same shape language per pack, seeded by id.
+// Swap the div for a real <Image> when waveform art is exported; callers don't change.
+const BASE_BARS = [
   10, 18, 8, 22, 14, 26, 12, 20, 9, 24, 16, 11, 28, 15, 21, 10, 18, 13, 25, 17,
   12, 23, 9, 19,
 ];
+
+const barsFor = (id: string) => {
+  const seed = [...id].reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  return BASE_BARS.map((h, i) => BASE_BARS[(i + seed) % BASE_BARS.length] ?? h);
+};
 
 export const PackCard = ({ pack, flip = false, className }: PackCardProps) => {
   return (
@@ -55,7 +61,7 @@ export const PackCard = ({ pack, flip = false, className }: PackCardProps) => {
             aria-hidden="true"
             className="flex h-8 flex-1 items-center gap-[2px]"
           >
-            {BARS.map((h, i) => (
+            {barsFor(pack.id).map((h, i) => (
               <span
                 key={i}
                 style={{ height: `${h}px` }}
