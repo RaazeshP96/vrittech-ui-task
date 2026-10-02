@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { CompositionView } from "@/components/creator/composition-view";
-import { Button } from "@/components/ui/button";
+import { PackPanel } from "@/components/creator/pack-panel";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import type { Composition, CreatorTrack, PackSound } from "@/types/creator";
 
 type CreatorViewProps = {
@@ -25,6 +26,8 @@ export const CreatorView = ({
     setPlayingId((current) => (current === id ? null : id));
   };
 
+  const closePack = () => setPackOpen(false);
+
   return (
     <div className="flex min-h-dvh bg-surface-neutral">
       <CompositionView
@@ -36,24 +39,34 @@ export const CreatorView = ({
         onOpenPack={() => setPackOpen(true)}
         className="flex-1"
       />
-      {packOpen ? (
-        <aside className="fixed inset-y-0 right-0 z-50 hidden w-[380px] flex-col gap-2 overflow-y-auto bg-surface-secondary p-4 md:flex">
-          <p className="type-serif-regular text-surface-tertiary">
-            Pack panel lands in C3
-          </p>
-          <p className="type-label-strong-caps text-surface-tertiary/60">
-            {sounds.length} sounds loaded
-          </p>
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={() => setPackOpen(false)}
-            className="text-surface-tertiary"
-          >
-            Close placeholder
-          </Button>
-        </aside>
-      ) : null}
+
+      <PackPanel
+        sounds={sounds}
+        playingId={playingId}
+        onTogglePlay={togglePlay}
+        onAdd={() => setPackOpen(false)}
+        onBack={closePack}
+        onClose={closePack}
+        className="hidden w-[380px] shrink-0 md:flex"
+      />
+
+      <Sheet open={packOpen} onOpenChange={setPackOpen}>
+        <SheetContent
+          side="right"
+          showCloseButton={false}
+          className="w-[85%] border-none bg-surface-secondary p-0"
+        >
+          <PackPanel
+            sounds={sounds}
+            playingId={playingId}
+            onTogglePlay={togglePlay}
+            onAdd={() => setPackOpen(false)}
+            onBack={closePack}
+            onClose={closePack}
+            className="flex min-h-full"
+          />
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };
