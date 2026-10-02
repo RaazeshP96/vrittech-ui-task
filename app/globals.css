@@ -18,6 +18,8 @@
   --sds-color-icon-neutral-secondary: #9d9c93;
   --sds-color-icon-neutral-tertiary: #d2d1c7;
 
+  --sds-typography-heading-font-family:
+    var(--font-display-src), "Libre Caslon Text", serif;
   --sds-typography-body-font-family: monospace; /* FILL: label font family */
   --sds-typography-body-size-medium: 14px; /* inferred from 15.4px line height, verify */
   --sds-typography-body-font-weight-strong: 700; /* FILL: resolved weight */
@@ -79,6 +81,7 @@
   --radius-card: var(--card-radius);
 
   --font-display: var(--font-display-src);
+  --font-display: var(--sds-typography-heading-font-family);
 }
 
 @utility type-serif-regular {
@@ -95,6 +98,16 @@
 
 @utility type-label-strong-caps {
   font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-style: normal;
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  line-height: 110%;
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
+}
+
+@utility type-label-strong-caps {
+  font-family: var(--sds-typography-heading-font-family);
   font-size: var(--sds-typography-body-size-medium);
   font-style: normal;
   font-weight: var(--sds-typography-body-font-weight-strong);
