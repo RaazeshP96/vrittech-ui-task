@@ -7,6 +7,7 @@ export const LIBRARY_ASSETS: LibraryAsset[] = [
     kind: "3D OBJECT",
     format: "OBJ",
     duration: "00:00",
+    image: "/library/lib-1.jpg",
   },
   {
     id: "lib-2",
@@ -14,6 +15,7 @@ export const LIBRARY_ASSETS: LibraryAsset[] = [
     kind: "IMAGE",
     format: "JPG",
     duration: "00:00",
+    image: "/library/lib-2.jpg",
   },
   {
     id: "lib-3",
@@ -21,6 +23,7 @@ export const LIBRARY_ASSETS: LibraryAsset[] = [
     kind: "SOUND",
     format: "WAV",
     duration: "00:00",
+    image: "/library/lib-3.jpg",
   },
   {
     id: "lib-4",
@@ -28,6 +31,7 @@ export const LIBRARY_ASSETS: LibraryAsset[] = [
     kind: "3D OBJECT",
     format: "OBJ",
     duration: "00:00",
+    image: "/library/lib-4.jpg",
   },
   {
     id: "lib-5",
@@ -35,19 +39,6 @@ export const LIBRARY_ASSETS: LibraryAsset[] = [
     kind: "IMAGE",
     format: "JPG",
     duration: "00:00",
-  },
-  {
-    id: "lib-6",
-    name: "Asset Name",
-    kind: "SOUND",
-    format: "WAV",
-    duration: "00:00",
-  },
-  {
-    id: "lib-7",
-    name: "Asset Name",
-    kind: "FOOTAGE",
-    format: "MP4",
-    duration: "00:00",
+    image: "/library/lib-5.jpg",
   },
 ];

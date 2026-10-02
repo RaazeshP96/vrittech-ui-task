@@ -7,13 +7,16 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "pink",
+    image: "/scapes/scape-1.png",
   },
+
   {
     id: "scape-2",
     name: "Scape Name",
     assetCount: 0,
     duration: "00:00",
     frame: "orange",
+    image: "/scapes/scape-2.png",
   },
   {
     id: "scape-3",
@@ -21,6 +24,7 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "green",
+    image: "/scapes/scape-3.png",
   },
   {
     id: "scape-4",
@@ -28,6 +32,7 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "yellow",
+    image: "/scapes/scape-4.png",
   },
   {
     id: "scape-5",
@@ -35,6 +40,7 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "lavender",
+    image: "/scapes/scape-5.png",
   },
   {
     id: "scape-6",
@@ -42,6 +48,7 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "orange",
+    image: "/scapes/scape-6.png",
   },
   {
     id: "scape-7",
@@ -49,6 +56,7 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "pink",
+    image: "/scapes/scape-7.png",
   },
   {
     id: "scape-8",
@@ -56,5 +64,6 @@ export const SCAPES: Scape[] = [
     assetCount: 0,
     duration: "00:00",
     frame: "green",
+    image: "/scapes/scape-8.png",
   },
 ];
