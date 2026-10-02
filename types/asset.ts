@@ -8,6 +8,7 @@ export type Asset = {
   duration: string;
   tag?: string;
   image?: string;
+  video?: string;
   text?: string;
   color?: "yellow" | "lavender";
 };
