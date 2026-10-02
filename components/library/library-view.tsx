@@ -8,6 +8,7 @@ import {
   List,
   SlidersHorizontal,
 } from "lucide-react";
+import Image from "next/image";
 import { MenuButton } from "@/components/shell/menu-button";
 import { PageShell } from "@/components/shell/page-shell";
 import { Button } from "@/components/ui/button";
@@ -112,7 +113,17 @@ export const LibraryView = ({ assets }: LibraryViewProps) => {
             <ul className="grid grid-cols-2 gap-4 pt-4 lg:grid-cols-3">
               {filtered.map((asset) => (
                 <li key={asset.id} className="flex flex-col gap-2">
-                  <div className="aspect-square rounded-card bg-surface-neutral" />
+                  <div className="relative aspect-square overflow-hidden rounded-card bg-surface-neutral">
+                    {asset.image && (
+                      <Image
+                        src={asset.image}
+                        alt={asset.name}
+                        fill
+                        sizes="(min-width:1024px) 33vw, 50vw"
+                        className="object-cover"
+                      />
+                    )}
+                  </div>
                   <p className="type-serif-regular truncate text-surface-tertiary">
                     {asset.name}
                   </p>
