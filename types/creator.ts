@@ -20,4 +20,5 @@ export type Composition = {
   name: string;
   pieceCount: number;
   cover?: string;
+  coverVideo?: string;
 };

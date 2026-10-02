@@ -34,7 +34,17 @@ export const CompositionView = ({
   return (
     <section className={cn("flex min-h-dvh flex-col", className)}>
       <div className="relative h-64 shrink-0 overflow-hidden bg-[#7a3a2e] md:h-80">
-        {composition.cover && (
+        {composition.coverVideo ? (
+          <video
+            src={composition.coverVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : composition.cover ? (
           <Image
             src={composition.cover}
             alt=""
@@ -43,7 +53,7 @@ export const CompositionView = ({
             sizes="100vw"
             className="object-cover"
           />
-        )}
+        ) : null}
         <div className="absolute left-3 top-3 md:left-4 md:top-4">
           <MenuButton />
         </div>
@@ -70,13 +80,15 @@ export const CompositionView = ({
                   <>
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md bg-surface-neutral">
                       {track.image && (
-                        <Image
-                          src={track.image}
-                          alt=""
-                          fill
-                          sizes="48px"
-                          className="object-cover"
-                        />
+                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md bg-white/40">
+                          <Image
+                            src={track.image}
+                            alt=""
+                            fill
+                            sizes="48px"
+                            className="object-cover"
+                          />
+                        </div>
                       )}
                     </div>
                     <span className="type-label-strong-caps flex-1 truncate">
