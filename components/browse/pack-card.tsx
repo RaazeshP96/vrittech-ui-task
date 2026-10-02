@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -10,8 +11,6 @@ type PackCardProps = {
   className?: string;
 };
 
-// Deterministic placeholder waveform — same shape language per pack, seeded by id.
-// Swap the div for a real <Image> when waveform art is exported; callers don't change.
 const BASE_BARS = [
   10, 18, 8, 22, 14, 26, 12, 20, 9, 24, 16, 11, 28, 15, 21, 10, 18, 13, 25, 17,
   12, 23, 9, 19,
@@ -72,9 +71,12 @@ export const PackCard = ({ pack, flip = false, className }: PackCardProps) => {
         </div>
         <div className="flex items-end justify-between gap-2">
           <div className="min-w-0">
-            <p className="type-serif-regular truncate text-surface-tertiary">
+            <Link
+              href={`/library/${pack.id}`}
+              className="type-serif-regular block truncate text-surface-tertiary hover:underline"
+            >
               {pack.name}
-            </p>
+            </Link>
             <p className="type-serif-regular truncate italic text-surface-tertiary/60">
               by {pack.author}
             </p>

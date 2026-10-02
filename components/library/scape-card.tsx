@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MoreVertical, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -37,9 +38,12 @@ export const ScapeCard = ({ scape }: ScapeCardProps) => {
       </div>
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <p className="type-serif-regular truncate text-surface-tertiary">
+          <Link
+            href={`/library/${scape.id}`}
+            className="type-serif-regular block truncate text-surface-tertiary hover:underline"
+          >
             {scape.name}
-          </p>
+          </Link>
           <p className="type-label-strong-caps text-surface-tertiary/60">
             {scape.duration} • {String(scape.assetCount).padStart(2, "0")}{" "}
             ASSETS

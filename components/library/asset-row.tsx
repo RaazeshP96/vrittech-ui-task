@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MoreVertical, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { LibraryAsset } from "@/types/library";
@@ -22,9 +23,12 @@ export const AssetRow = ({ asset }: AssetRowProps) => {
         )}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="type-serif-regular truncate text-surface-tertiary">
+        <Link
+          href={`/library/${asset.id}`}
+          className="type-serif-regular block truncate text-surface-tertiary hover:underline"
+        >
           {asset.name}
-        </p>
+        </Link>
         <p className="type-label-strong-caps text-surface-tertiary/60">
           {asset.kind}
         </p>

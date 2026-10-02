@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -63,7 +64,16 @@ export const AssetCard = ({ asset, className }: AssetCardProps) => {
 
       <div className="flex items-end justify-between gap-6 rounded-card bg-surface-tertiary p-2">
         <div className="min-w-0">
-          <p className="type-serif-regular truncate text-ink">{asset.name}</p>
+          {isWord ? (
+            <p className="type-serif-regular truncate text-ink">{asset.name}</p>
+          ) : (
+            <Link
+              href={`/library/${asset.id}`}
+              className="type-serif-regular block truncate text-ink hover:underline"
+            >
+              {asset.name}
+            </Link>
+          )}
           <p className="type-serif-regular truncate italic text-ink-secondary">
             by {asset.author}
           </p>
