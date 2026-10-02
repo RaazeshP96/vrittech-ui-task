@@ -1,130 +1,104 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
-}
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sds-color-background-neutral-default: #9d9c93;
+  --sds-color-background-default-default: #736868;
+  --sds-color-background-default-default-hover: #ffc9c1;
+  --sds-color-background-default-secondary: #231f20;
+  --sds-color-background-default-secondary-hover: #e5d377;
+  --sds-color-background-default-tertiary: #e8e7de;
+  --sds-color-background-default-tertiary-hover: #c4baff;
+  --sds-color-background-brand-default: #e8e7de;
+
+  --sds-color-text-default-default: #ff00ff;
+  --sds-color-text-default-tertiary: #ff00ff;
+
+  --sds-color-icon-default-default: #1e1e1e;
+  --sds-color-icon-neutral-default: #ff00ff;
+  --sds-color-icon-neutral-secondary: #9d9c93;
+  --sds-color-icon-neutral-tertiary: #d2d1c7;
+
+  --sds-typography-body-font-family: monospace; /* FILL: label font family */
+  --sds-typography-body-size-medium: 14px; /* inferred from 15.4px line height, verify */
+  --sds-typography-body-font-weight-strong: 700; /* FILL: resolved weight */
+
+  --backdrop-idle: #ff00ff; /* FILL: Launch / Idle */
+  --backdrop-shell: #ff00ff; /* FILL: taupe behind panels on app screens */
+  --panel-dark: #ff00ff; /* FILL: Library, Scapes, Creator */
+  --panel-light: #ff00ff; /* FILL: Browse */
+  --panel-muted: #ff00ff; /* FILL: PDP */
+  --raised: #ff00ff; /* FILL: buttons, inputs, chips */
+
+  /* Accents: delete any the design doesn't use */
+  --accent-lavender: #ff00ff; /* FILL */
+  --accent-yellow: #ff00ff; /* FILL */
+  --accent-pink: #ff00ff; /* FILL */
+  --accent-orange: #ff00ff; /* FILL */
+
+  /* Radii */
+  --panel-radius: 0px; /* FILL */
+  --pill-radius: 0px; /* FILL */
+  --card-radius: 0px; /* FILL */
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+@theme inline {
+  --color-surface-neutral: var(--sds-color-background-neutral-default);
+  --color-surface: var(--sds-color-background-default-default);
+  --color-surface-hover: var(--sds-color-background-default-default-hover);
+  --color-surface-secondary: var(--sds-color-background-default-secondary);
+  --color-surface-secondary-hover: var(
+    --sds-color-background-default-secondary-hover
+  );
+  --color-surface-tertiary: var(--sds-color-background-default-tertiary);
+  --color-surface-tertiary-hover: var(
+    --sds-color-background-default-tertiary-hover
+  );
+  --color-surface-brand: var(--sds-color-background-brand-default);
+
+  --color-ink: var(--sds-color-text-default-default);
+  --color-ink-tertiary: var(--sds-color-text-default-tertiary);
+
+  --color-icon: var(--sds-color-icon-default-default);
+  --color-icon-neutral: var(--sds-color-icon-neutral-default);
+  --color-icon-neutral-secondary: var(--sds-color-icon-neutral-secondary);
+  --color-icon-neutral-tertiary: var(--sds-color-icon-neutral-tertiary);
+  --color-backdrop-idle: var(--backdrop-idle);
+  --color-backdrop-shell: var(--backdrop-shell);
+  --color-panel-dark: var(--panel-dark);
+  --color-panel-light: var(--panel-light);
+  --color-panel-muted: var(--panel-muted);
+  --color-raised: var(--raised);
+
+  --color-accent-lavender: var(--accent-lavender);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-orange: var(--accent-orange);
+
+  --radius-panel: var(--panel-radius);
+  --radius-pill: var(--pill-radius);
+  --radius-card: var(--card-radius);
+
+  --font-display: var(--font-display-src);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
+@utility type-serif-regular {
+  font-family: var(--font-display-src), serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  letter-spacing: -0.36px;
+  font-feature-settings:
+    "dlig" on,
+    "ss01" on;
+}
+
+@utility type-label-strong-caps {
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-style: normal;
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  line-height: 110%;
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
 }
