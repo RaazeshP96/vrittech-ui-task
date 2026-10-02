@@ -1,8 +1,5 @@
 import { cn } from "@/lib/utils";
-
-type WordmarkProps = {
-  className?: string;
-};
+import { WordmarkProps } from "@/types/shell";
 
 export const Wordmark = ({ className }: WordmarkProps) => {
   return (
