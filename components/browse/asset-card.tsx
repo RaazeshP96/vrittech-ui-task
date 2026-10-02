@@ -28,14 +28,28 @@ export const AssetCard = ({ asset, className }: AssetCardProps) => {
         )}
       >
         {isWord && <p className="pr-8">{asset.text}</p>}
-        {!isWord && asset.image && (
-          <Image
-            src={asset.image}
-            alt={asset.name}
-            fill
-            sizes="176px"
-            className="object-cover"
+        {!isWord && asset.video ? (
+          <video
+            src={asset.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
           />
+        ) : (
+          !isWord &&
+          asset.image && (
+            <Image
+              src={asset.image}
+              alt={asset.name}
+              fill
+              sizes="176px"
+              className="object-cover"
+            />
+          )
         )}
         <Button
           type="button"

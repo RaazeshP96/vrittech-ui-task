@@ -4,6 +4,7 @@ import { useState, type ReactNode } from "react";
 import { Play, SlidersHorizontal } from "lucide-react";
 import { AssetCard } from "@/components/browse/asset-card";
 import { FilterPanel } from "@/components/browse/filter-panel";
+import { PackCard } from "@/components/browse/pack-card";
 import { MenuButton } from "@/components/shell/menu-button";
 import { PageShell } from "@/components/shell/page-shell";
 import { Button } from "@/components/ui/button";
@@ -134,8 +135,8 @@ export const BrowseView = ({ data }: { data: BrowseData }) => {
 
       <Section title="Featured Packs">
         <div className="grid gap-3 sm:grid-cols-2">
-          {data.packs.map((pack) => (
-            <AssetCard key={pack.id} asset={pack} className="w-full" />
+          {data.packs.map((pack, i) => (
+            <PackCard key={pack.id} pack={pack} flip={i % 2 === 1} />
           ))}
         </div>
       </Section>
