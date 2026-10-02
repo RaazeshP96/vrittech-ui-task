@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Libre_Caslon_Text } from "next/font/google";
+import { IBM_Plex_Mono, Libre_Caslon_Text } from "next/font/google";
 import "./globals.css";
 
 const serif = Libre_Caslon_Text({
@@ -7,6 +7,14 @@ const serif = Libre_Caslon_Text({
   weight: ["400"],
   style: ["normal", "italic"],
   variable: "--font-display-src",
+  display: "swap",
+});
+
+const label = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal"],
+  variable: "--font-label-src",
   display: "swap",
 });
 
@@ -21,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={serif.variable}>
+    <html lang="en" className={`${serif.variable} ${label.variable}`}>
       <body className="min-h-dvh antialiased">{children}</body>
     </html>
   );

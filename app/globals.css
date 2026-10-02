@@ -46,13 +46,14 @@
 
   --sds-typography-heading-font-family:
     var(--font-display-src), "Libre Caslon Text", serif;
-  --sds-typography-body-font-family: monospace; /* FILL: label font */
-  --sds-typography-body-size-medium: 14px; /* inferred from 15.4px line height, verify */
-  --sds-typography-body-font-weight-strong: 700; /* FILL */
+  --sds-typography-body-font-family:
+    var(--font-label-src), "IBM Plex Mono", ui-monospace, monospace;
+  --sds-typography-body-size-medium: 14px;
+  --sds-typography-body-font-weight-strong: 500;
 
-  --panel-radius: 0px; /* FILL */
-  --pill-radius: 0px; /* FILL */
-  --card-radius: 0px; /* FILL */
+  --panel-radius: 20px;
+  --pill-radius: 999px;
+  --card-radius: 10px;
 }
 
 @theme inline {
