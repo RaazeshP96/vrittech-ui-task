@@ -20,3 +20,7 @@ export type Scape = {
   image?: string;
   frame: ScapeFrame;
 };
+
+export type LibraryViewProps = {
+  assets: LibraryAsset[];
+};
