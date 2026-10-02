@@ -1,3 +1,4 @@
+import { PdpView } from "@/components/pdp/pdp-view";
 import { getPdpAsset, getPdpIds } from "@/lib/api/pdp";
 
 export const generateStaticParams = async () => {
@@ -8,11 +9,7 @@ export const generateStaticParams = async () => {
 const PdpPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const asset = await getPdpAsset(id);
-  return (
-    <main className="p-6">
-      <h1 className="type-serif-regular">{asset.name}</h1>
-    </main>
-  );
+  return <PdpView asset={asset} />;
 };
 
 export default PdpPage;
